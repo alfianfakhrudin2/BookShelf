@@ -35,3 +35,17 @@ document.addEventListener(Revent, function () {
     }
 });
 
+
+//ADD BOOK JS
+document.addEventListener(Revent, function () {
+    const submitForm = document.getElementById("inputBook");
+    submitForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        addBook();
+    });
+
+    if (isStorageExist()){
+        loadDataFromStorage();
+    }
+});
+
