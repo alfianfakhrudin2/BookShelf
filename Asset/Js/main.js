@@ -1,4 +1,4 @@
-const event = "event";
+const Revent = "event";
 const save = "save";
 const update = "update";
 const deleted = "delete";
@@ -12,3 +12,26 @@ const isStorageExist = () => {
     }
     return true;
 }
+
+//LOADING JS
+
+document.addEventListener(Revent, function () {
+    updateDataToStorage();
+    const unfinishedBook = document.getElementById("incomplete");
+    unfinishedBook.innerHTML = "";
+
+    const finishedBook = document.getElementById("complete");
+    finishedBook.innerHTML = "";
+
+    for (const item of books){
+        const newBook = makeBook(item.title, item.author, item.year, item.isComplete);
+        newBook[bookId] = item.id;
+
+        if (item.isComplete){
+            finishedBook.append(newBook);
+        } else {
+            unfinishedBook.append(newBook);
+        }
+    }
+});
+
