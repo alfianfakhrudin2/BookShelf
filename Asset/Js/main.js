@@ -1,51 +1,53 @@
-const Revent = "event";
-const save = "save";
-const update = "update";
-const deleted = "delete";
-const storage = "storage";
-const book = "book";
+const RENDER_EVENT = "render-book";
+const SAVED_EVENT = "saved-book";
+const MOVED_EVENT = "moved-book";
+const DELETED_EVENT = "deleted-book";
+const STORAGE_KEY = "BOOKSHELF_APPS";
+const books = [];
 
 const isStorageExist = () => {
-    if (typeof (Storage) === undefined) {
-        alert("Browser kamu tidak mendukung local storage");
-        return false;
+  if (typeof Storage === undefined) {
+    alert("Browser kamu tidak mendukung web storage");
+    return false;
+  }
+  return true;
+};
+
+document.addEventListener(RENDER_EVENT, () => {
+  const unfinishedBook = document.getElementById("belumDibaca");
+  unfinishedBook.innerHTML = "";
+
+  const finishedBook = document.getElementById("sudahDibaca");
+  finishedBook.innerHTML = "";
+
+  for (const bookItem of books) {
+    const bookElement = makeBookElement(bookItem);
+    if (!bookItem.isComplete) {
+      unfinishedBook.append(bookElement);
+    } else {
+      finishedBook.append(bookElement);
     }
-    return true;
-}
-
-//LOADING JS
-
-document.addEventListener(Revent, function () {
-    updateDataToStorage();
-    const unfinishedBook = document.getElementById("incomplete");
-    unfinishedBook.innerHTML = "";
-
-    const finishedBook = document.getElementById("complete");
-    finishedBook.innerHTML = "";
-
-    for (const item of books){
-        const newBook = makeBook(item.title, item.author, item.year, item.isComplete);
-        newBook[bookId] = item.id;
-
-        if (item.isComplete){
-            finishedBook.append(newBook);
-        } else {
-            unfinishedBook.append(newBook);
-        }
-    }
+  }
 });
 
+document.addEventListener(SAVED_EVENT, () => {
+  const elementCustomAlert = document.createElement("div");
+  elementCustomAlert.classList.add("alert");
+  elementCustomAlert.innerText = "Berhasil Disimpan!";
 
-//ADD BOOK JS
-document.addEventListener(Revent, function () {
-    const submitForm = document.getElementById("inputBook");
-    submitForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        addBook();
-    });
-
-    if (isStorageExist()){
-        loadDataFromStorage();
-    }
+  document.body.insertBefore(elementCustomAlert, document.body.children[0]);
+  setTimeout(() => {
+    elementCustomAlert.remove();
+  }, 2000);
 });
 
+document.addEventListener(MOVED_EVENT, () => {
+  const elementCustomAlert = document.createElement("div");
+  elementCustomAlert.classList.add("alert");
+  elementCustomAlert.innerText = "Berhasil Dipindahkan!";
+
+  document.body.insertBefore(elementCustomAlert, document.body.children[0]);
+  setTimeout(() => {
+    elementCustomAlert.remove();
+  }, 2000);
+});
