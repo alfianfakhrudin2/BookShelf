@@ -51,3 +51,14 @@ document.addEventListener(MOVED_EVENT, () => {
     elementCustomAlert.remove();
   }, 2000);
 });
+
+document.addEventListener(DELETED_EVENT, () => {
+  const elementCustomAlert = document.createElement("div");
+  elementCustomAlert.classList.add("alert");
+  elementCustomAlert.innerText = "Berhasil Dihapus!";
+
+  document.body.insertBefore(elementCustomAlert, document.body.children[0]);
+  setTimeout(() => {
+    elementCustomAlert.remove();
+  }, 2000);
+});
