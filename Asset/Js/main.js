@@ -62,3 +62,13 @@ document.addEventListener(DELETED_EVENT, () => {
     elementCustomAlert.remove();
   }, 2000);
 });
+
+const loadDataFromStorage = () => { 
+  const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+  if(data !== null){
+    for (const book of data) {
+      books.push(book);
+    }
+  }
+}
