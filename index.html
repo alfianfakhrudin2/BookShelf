@@ -1,91 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bookshelf Apps</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
-  <link rel="stylesheet" href="Asset/css/style.css">
-</head>
-<body>
-<header class="head_bar">
-  <h1 class="head_bar__title">Bookshelf Apps</h1>
-</header>
-<main>
-  <section class="input_section">
-    <h2>Masukkan Buku Baru</h2>
-    <form id="inputBook" action="" method="post">
-      <div class="input">
-        <label for="bookTitle">Judul</label>
-        <input id="bookTitle" type="text" name="bookTitle" required>
-      </div>
-      <div class="input">
-        <label for="bookAuthor">Penulis</label>
-        <input id="bookAuthor" type="text"  name="bookAuthor" required>
-      </div>
-      <div class="input">
-        <label for="bookYear">Tahun</label>
-        <input id="bookYear" type="number" name="bookYear" required>
-      </div>
-      <div class="input_inline">
-        <label for="isComplete">Selesai dibaca</label>
-        <input id="isComplete" type="checkbox" name="isComplete">
-      </div>
-      <button id="bookSubmit" type="submit-btn">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
-    </form>
-  </section>
-  
-  <section class="search_section">
-    <h2 class="title">Cari Buku (Opsional)</h2>
-    <form id="searchBook" action="" method="post">
-      <div class="form-group">
-        <label for="searchBook">Judul</label>
-        <input id="searchBook" type="text" name="searchBook" placeholder="">
-      </div>
-      <button id="searchSubmit" type="submit">Cari</button>
-    </form>
-  </section>
-  
-  <section class="book_shelf">
-    <h2>Belum selesai dibaca</h2>
-    
-    <div id="incompleteBookshelfList" class="book_list">
-<!--      <article class="book_item">-->
-<!--        <h3>Book Title</h3>-->
-<!--        <p>Penulis: John Doe</p>-->
-<!--        <p>Tahun: 2002</p>-->
-<!--    -->
-<!--        <div class="action">-->
-<!--          <button class="green">Selesai dibaca</button>-->
-<!--          <button class="red">Hapus buku</button>-->
-<!--        </div>-->
-<!--      </article>-->
-    </div>
-  </section>
-  
-  <section class="book_shelf">
-    <h2>Selesai dibaca</h2>
-    
-    <div id="completeBookshelfList" class="book_list">
-<!--      <article class="book_item">-->
-<!--        <h3>Book Title</h3>-->
-<!--        <p>Penulis: John Doe</p>-->
-<!--        <p>Tahun: 2002</p>-->
-<!--        -->
-<!--        <div class="action">-->
-<!--          <button class="green">Belum selesai di Baca</button>-->
-<!--          <button class="red">Hapus buku</button>-->
-<!--        </div>-->
-<!--      </article>-->
-    </div>
-  </section>
-</main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bookshelf Apps</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Asset/css/style.css" />
+  </head>
+  <body>
+    <header class="head_bar">
+      <h1 class="head_bar__title">Bookshelf Apps</h1>
+    </header>
+    <main>
+      <section class="input_section" id="inputSection">
+        <h2 id="h2InputSection">Masukkan Buku Baru</h2>
+        <form id="inputBook">
+          <div class="input" id="sectionTitle">
+            <label for="inputBookTitle">Judul</label>
+            <input id="inputBookTitle" type="text" />
+            <small class="error-display" id="errorTitle">Wajib Diisi</small>
+          </div>
+          <div class="input" id="sectionAuthor">
+            <label for="inputBookAuthor">Penulis</label>
+            <input id="inputBookAuthor" type="text" />
+            <small class="error-display" id="errorAuthor">Wajib Diisi</small>
+          </div>
+          <div class="input" id="sectionYear">
+            <label for="inputBookYear">Tahun</label>
+            <input id="inputBookYear" type="number" />
+            <small class="error-display" id="errorYear">Wajib Diisi</small>
+          </div>
+          <div class="input_inline">
+            <label for="inputBookIsComplete">Selesai dibaca</label>
+            <input id="inputBookIsComplete" type="checkbox" />
+          </div>
+          <button id="bookSubmit" type="button">Masukkan Buku</button>
+        </form>
+      </section>
 
-<script src="Asset/Js/main.js"></script>
+      <button id="darkButton" class="dark-button">Dark Mode</button>
 
-</body>
+      <section class="search_section book_shelf" id="searchSection">
+        <h2 id="searchSectionH2">Cari Buku</h2>
+        <form id="searchBook" style="overflow-x: scroll">
+          <label for="searchBookTitle">Keyword</label>
+          <input id="searchBookTitle" type="text" />
+          <button id="searchSubmit" type="submit">Cari</button>
+        </form>
+
+        <div id="searchResult" class="book_list" style="width: 100%"></div>
+      </section>
+
+      <section class="book_shelf" id="bookShelfUncompleted">
+        <h2 id="uncompletedH2">Belum selesai dibaca</h2>
+
+        <div id="incompleteBookshelfList" class="book_list"></div>
+      </section>
+
+      <section class="book_shelf" id="bookShelfCompleted">
+        <h2 id="completedH2">Selesai dibaca</h2>
+
+        <div id="completeBookshelfList" class="book_list"></div>
+      </section>
+    </main>
+
+    <script src="Asset/Js/main.js"></script>
+    <script src="darkmode.js"></script>
+  </body>
 </html>
