@@ -10,10 +10,9 @@ const isStorageExist = () => {
 const addBook = () => {
     const bookTitle = document.getElementById("inputBookTitle").value;
     const bookAuthor = document.getElementById("inputBookAuthor").value;
-    const bookYear = document.getElementById("inputBookYear").value;
+    const bookYear = parseInt(document.getElementById("inputBookYear").value);
     const isCompleted = document.getElementById("inputBookIsComplete").checked;
     
-    // Memeriksa apakah buku sudah ada di dalam daftar
     if (findBookByTitle(bookTitle)) {
         alert("Buku sudah ada dalam daftar!");
         return;
@@ -24,6 +23,7 @@ const addBook = () => {
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveBook();
 };
+
 const findBookByTitle = (title) => {
     return books.find(book => book.title === title);
 };
@@ -103,7 +103,7 @@ const updateBook = (bookId) => {
     books[bookIndex] = updatedBook;
 
     resetForm();
-    // Mengembalikan tombol submit ke kondisi awal
+
     toggleFormMode(false);
     document.getElementById("bookSubmit").innerText = "Submit";
     document.getElementById("bookSubmit").removeEventListener("click", updateBook);
@@ -216,17 +216,17 @@ const undoBookFromCompleted = (bookId) => {
 const bookIndex = findIndex(bookId);
 if (bookIndex === -1) return;
 
-// Tampilkan modal konfirmasi delete
+
 $('#confirmDeleteModal').modal('show');
 
-// Ketika tombol konfirmasi di modal ditekan
+
 $('#confirmDeleteButton').on('click', function() {
-    // Hapus buku dari daftar
+
     books.splice(bookIndex, 1);
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveBook();
 
-    // Sembunyikan modal setelah menghapus
+
     $('#confirmDeleteModal').modal('hide');
 });
 };
@@ -254,12 +254,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     searchBookTitleInput.addEventListener("input", () => {
-        const searchTerm = searchBookTitleInput.value.trim(); // Menghapus spasi di awal dan akhir
+        const searchTerm = searchBookTitleInput.value.trim();
         if (searchTerm.length > 0) {
-            // Jika ada isi pada input form, aktifkan tombol pencarian
+        
             searchButton.disabled = false;
         } else {
-            // Jika input form kosong, nonaktifkan tombol pencarian
+        
             searchButton.disabled = true;
         }
     });
@@ -276,7 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
         results.forEach((book) => {
             const bookElement = makeBook(book);
 
-            // Menyembunyikan tombol aksi pada data yang ditampilkan setelah pencarian
             const actionButtons = bookElement.querySelector(".action");
             actionButtons.style.display = "none";
 
@@ -288,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadBooks();
     }
 
-    // Memeriksa apakah input form pencarian awalnya kosong dan menonaktifkan tombol pencarian jika demikian
+
     if (searchBookTitleInput.value.trim().length === 0) {
         searchButton.disabled = true;
     }
@@ -300,10 +299,10 @@ function toggleFormMode(editMode) {
     const submitButton = document.getElementById("bookSubmit");
     const inputForm = document.getElementById("inputBook");
     if (editMode) {
-        // Memasukkan mode edit
+
         inputForm.dataset.mode = "edit";
     } else {
-        // Memasukkan mode tambah
+
         inputForm.dataset.mode = "add";
     }
 }
