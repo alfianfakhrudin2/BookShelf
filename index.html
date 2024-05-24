@@ -15,7 +15,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-dark bg-success">
       <div class="container">
         <p class="navbar-brand mb-0 fw-bold fs-3 text-uppercase mx-auto">
           Bookshelf Apps
@@ -48,8 +48,7 @@
                         type="text"
                         class="form-control border-primary"
                         id="inputAuthor"
-                        required
-                      />
+                        required/>
                     </div>
                     <div class="mb-3">
                       <label for="inputYear" class="form-label">Tahun</label>
@@ -62,20 +61,19 @@
                     </div>
                     <!-- Checkbox untuk menandai buku sudah dibaca -->
                     <div class="mb-3 form-check">
-                      <!-- <input
+                      <input
                         type="checkbox"
                         class="form-check-input"
                         id="isCompleted"
-                        data-book-id=""
-                      /> -->
-                      <div class="input_inline">
+                        data-book-id=""/>
+                      <label for="isCompleted">Selesai dibaca</label>
+                      <!-- <div class="input_inline">
                         <label for="isCompleted">Selesai dibaca</label>
-                        <input id="isCompleted" type="checkbox">
-                    </div>
+                        <input id="isCompleted" type="checkbox"> -->
                     </div>
                     <!-- Akhir checkbox -->
                     <div class="d-flex justify-content-end">
-                      <button type="submit" class="btn btn-primary">
+                      <button type="submit" class="btn btn-success">
                         Tambahkan Buku
                       </button>
                     </div>

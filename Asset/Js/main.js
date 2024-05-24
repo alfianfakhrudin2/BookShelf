@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       editBook(bookIdToEdit);
     } else {
       addBook();
-    }
+    } 
 
     submitForm.reset();
   });
@@ -304,8 +304,13 @@ function setFormFieldToUpdate(bookObject) {
   const inputYear = document.getElementById("inputYear");
   inputYear.value = bookObject.year;
 
-  formMode = "UPDATE";
+  formMode = "UPDATE"; // Mengubah mode menjadi "UPDATE" saat melakukan perubahan
   bookIdToEdit = bookObject.id;
+
+  const submitButton = document.getElementById("submitBtn"); // Ambil tombol submit
+
+  // Ubah teks tombol menjadi "Update Data"
+  submitButton.innerText = "Update Data";
 }
 
 function editBook(bookId) {
@@ -322,11 +327,18 @@ function editBook(bookId) {
   showAlert("Buku berhasil diedit", "success");
   document.dispatchEvent(new Event(RENDER_EVENT));
 
-  formMode = "CREATE";
+  const submitButton = document.getElementById("submitBtn"); // Ambil tombol submit
+
+  // Ubah teks tombol menjadi "Submit" setelah melakukan update
+  submitButton.innerText = "Submit";
+
+  formMode = "CREATE"; // Kembalikan mode ke "CREATE" setelah update
   bookIdToEdit = "";
 
   saveData();
 }
+
+
 
 const searchTitle = document.getElementById("searchTitle");
 searchTitle.addEventListener("keyup", searchBook);
