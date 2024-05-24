@@ -1,109 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookshelf WEB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Asset/css/style.css">
-</head>
-<body>
-    <header class="head_bar">
-        <h1 class="head_bar__title">Bookshelf Apps</h1>
-    </header>
-    <main>
-        <div class="container" style="margin-right: 15px;">
-            <section class="input_section">
-                <h2>Masukkan Buku Baru</h2>
-                <form id="inputBook">
-                    <div class="input">
-                        <label for="inputBookTitle">Judul</label>
-                        <input id="inputBookTitle" type="text" required>
-                    </div>
-                    <div class="input">
-                        <label for="inputBookAuthor">Penulis</label>
-                        <input id="inputBookAuthor" type="text">
-                    </div>
-                    <div class="input">
-                        <label for="inputBookYear">Tahun</label>
-                        <input id="inputBookYear" type="number">
-                    </div>
-                    <div class="input_inline">
-                        <label for="inputBookIsComplete">Selesai dibaca</label>
-                        <input id="inputBookIsComplete" type="checkbox">
-                    </div>
-                    <button id="bookSubmit" value="Submit" type="submit">Masukkan Buku</button>
-                </form>
-            </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf Apps</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="Asset/css/style.css" />
 
-            <section class="search_section">
-                <h2>Cari Buku</h2>
-                <form id="searchBook">
-                    <label for="searchBookTitle">Judul</label>
-                    <div class="container_search">
-                        <input id="searchBookTitle" type="text">
-                        <button id="searchSubmit" type="button"><svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                fill="none">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path fill="#323232" fill-rule="evenodd"
-                                        d="M4 9a5 5 0 1110 0A5 5 0 014 9zm5-7a7 7 0 104.2 12.6.999.999 0 00.093.107l3 3a1 1 0 001.414-1.414l-3-3a.999.999 0 00-.107-.093A7 7 0 009 2z">
-                                    </path>
-                                </g>
-                            </svg></button>
-                    </div>
-                </form>
-                <div class="search_results">
-                    <h2>Hasil pencarian</h2>
-                    <div id="searchResults" class="book_list"></div>
-                </div>
-            </section>
-        </div>
-
-        <div class="container" style="margin-left: 15px;">
-            <section class="book_shelf">
-                <h2>Belum selesai dibaca</h2>
-                <div id="unCompleteBookshelfList" class="book_list"></div>
-            </section>
-
-            <section class="book_shelf">
-                <h2>Selesai dibaca</h2>
-                <div id="completeBookshelfList" class="book_list"></div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Modal Konfirmasi Delete -->
-    <div class="modal" id="confirmDeleteModal" tabindex="1" role="dialog">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title">Konfirmasi Delete</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  Apakah Anda yakin ingin menghapus buku ini?
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                  <button type="button" class="btn btn-danger" id="confirmDeleteButton">Ya</button>
-              </div>
-          </div>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container">
+        <p class="navbar-brand mb-0 fw-bold fs-3 text-uppercase mx-auto">
+          Bookshelf Apps
+        </p>
       </div>
-  </div>
+    </nav>
+    <section class="container">
+      <div style="align-items: center;">
+            <div class="col-md-12">
+              <div class="card text-dark shadow border-dark bg-light mb-4">
+                <div class="card-header bg-transparent">
+                  <p class="text-capitalize fw-bold fs-5 text-center mb-0">
+                    Masukkan buku baru
+                  </p>
+                </div>
+                <div class="card-body">
+                  <form action="#" class="p-2" id="formAddBook">
+                    <div class="mb-3">
+                      <label for="inputTitle" class="form-label">Judul</label>
+                      <input
+                        type="text"
+                        class="form-control border-primary"
+                        id="inputTitle"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputAuthor" class="form-label">Penulis</label>
+                      <input
+                        type="text"
+                        class="form-control border-primary"
+                        id="inputAuthor"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputYear" class="form-label">Tahun</label>
+                      <input
+                        type="number"
+                        class="form-control border-primary"
+                        id="inputYear"
+                        required
+                      />
+                    </div>
+                    <!-- Checkbox untuk menandai buku sudah dibaca -->
+                    <div class="mb-3 form-check">
+                      <!-- <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="isCompleted"
+                        data-book-id=""
+                      /> -->
+                      <div class="input_inline">
+                        <label for="isCompleted">Selesai dibaca</label>
+                        <input id="isCompleted" type="checkbox">
+                    </div>
+                    </div>
+                    <!-- Akhir checkbox -->
+                    <div class="d-flex justify-content-end">
+                      <button type="submit" class="btn btn-primary">
+                        Tambahkan Buku
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
   
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <div class="col-md-12">
+              <div class="card text-dark shadow border-dark bg-light mb-4">
+                <div class="card-header bg-transparent">
+                  <p class="text-capitalize fw-bold fs-5 text-center mb-0">
+                    Cari buku
+                  </p>
+                </div>
+                <div class="card-body">
+                  <div class="input-group">
+                    <input
+                      type="search"
+                      class="form-control border-primary border-end-0"
+                      id="searchTitle"
+                      placeholder="Cari judul, penulis, atau tahun buku..."
+                    />
+                    <div class="input-group-postpend">
+                      <span
+                        class="input-group-text border-primary bg-white border-start-0 rounded-0 rounded-end">
+                        <i class="bi bi-search"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="card text-dark shadow border-dark bg-light mb-4">
+                <div class="card-header bg-transparent">
+                  <p class="text-capitalize fw-bold fs-5 text-center mb-0">
+                    Belum selesai dibaca
+                  </p>
+                </div>
+                <div class="card-body" id="unreadBooks"></div>
+              </div>
+  
+              <div class="card text-dark shadow border-dark bg-light mb-4">
+                <div class="card-header bg-transparent">
+                  <p class="text-capitalize fw-bold fs-5 text-center mb-0">
+                    Selesai dibaca
+                  </p>
+                </div>
+                <div class="card-body" id="finishedReading"></div>
+              </div>
+            </div>
+        
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="Asset/Js/main.js" type="text/javascript"></script>
-</body>
+    <script src="Asset/Js/main.js"></script>
+    <script src="Asset/Js/storage.js"></script>
+  </body>
 </html>

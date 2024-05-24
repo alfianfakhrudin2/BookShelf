@@ -1,139 +1,77 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body, input, button {
-    font-family: 'Roboto', sans-serif;
-  }
-  body {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto 1600px;
-  }
-  h1 {
-    text-align: center;
-    margin: 20px;
-    font-size: 42px;
-  }
-  main {
-    margin: 0px 30px auto;
-    display: flex;
-  }
-  .container {
-    width: 50%;
-  }
-  section {
-    background-color: white;
-    padding: 32px;
-    border-radius: 24px;
-    margin-bottom: 24px;
-    box-shadow: 8px 8px 40px #0000002c;
-  }
-  h2 {
-    text-align: center;
-    font-size: 35px;
-    margin-bottom: 28px;
-  }
-  .input_section > form > .input > label, .search_section > form > label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 20px;
-  }
-  .input_section > form > .input_inline {
-  margin-bottom: 24px;
-  font-size: 20px;
-  }
-  .input_section > form > .input_inline > input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-  }
-  .input_section > form > .input > input {
-    width: 100%;
-    height: 50px;
-    padding: 0px 12px;
-    font-size: 20px;
-    border: solid 1px #323232;
-    border-radius: 18px;
-    box-shadow: 10px 10px 26px #0000002c;
-    margin-bottom: 24px;
-  }
-  .input_section > form > button {
-    background-color: #323232;
-    width: 100%;
-    height: 50px;
-    font-size: 20px;
-    color: white;
-    border-radius: 18px;
-    border: none;
-    box-shadow: 10px 10px 26px #00000040;
-  }
-  .input_section > form > button:hover {
-    color: #323232;
-    background-color: white;
-    transition: ease-in-out 500ms;
-  }
-  .search_section > form > .container_search > input {
-    width: 100%;
-    height: 50px;
-    padding: 0px 12px;
-    font-size: 20px;
-    border: solid 1px #323232;
-    border-radius: 18px;
-    box-shadow: 10px 10px 26px #0000002c;
-  }
-  .container_search {
-    position: relative;
-  }
-  .search_section > form > .container_search > button {
-  width: 25px;
-  position: absolute;
-  right: 18px;
-  top: 15px;
-  }
-  .search_section > form#searchBook {
-  margin-bottom: 40px;
-  }
-  .book_container {
-  border: solid 1px #323232;
-  border-radius: 18px;
-  box-shadow: 10px 10px 26px #0000002c;
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 30px;
-  }
-  .book_container > .book_item > h3 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  }
-  .book_container > .book_item > p {
-  font-size: 20px;
-  margin-top: 5px;
-  }
-  .book_container > .action > button {
-  background-color: #323232;
-  border-radius: 9999px;
-  color: white;
-  padding: 8px 12px;
-  font-size: 14px;
-  margin-right: 5px;
-  display: block;
-  box-shadow: 5px 5px 10px #0000002c
-  }
-  .book_container > .action {
-  display: flex;
-  justify-items: end;
-  }
-  button#searchSubmit {
-  border: none;
-  background: none;
-  }
-  .book_container > .action > button:hover {
-  background-color: white;
-  color: #323232;
-  border: none;
-  transition: ease-in-out 500ms;
-  }
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #0d6efd;
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid #343a40;
+  border-radius: 8px;
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid #343a40;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-title a {
+  text-decoration: none;
+  color: #0d6efd;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+/* Form Styles */
+.form-label {
+  font-weight: bold;
+}
+
+/* Primary Button Styles */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+}
+
+/* Input Group Text Styles */
+.input-group-text {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+.input-group-text:hover {
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+}
+
+.container {
+  margin-top: 20px;
+  align-items: center;
+}
+
+/* Optional: Add more custom styles as needed */
