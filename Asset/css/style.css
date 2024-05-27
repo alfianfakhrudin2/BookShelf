@@ -1,15 +1,12 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
 }
-
-/* Navbar Styles */
+ 
 .navbar {
   background-color: #0d6efd;
 }
 
-/* Card Styles */
 .card {
   border: 1px solid #343a40;
   border-radius: 8px;
@@ -19,59 +16,58 @@ body {
   background-color: transparent;
   border-bottom: 1px solid #343a40;
 }
-
+ 
 .card-body {
   padding: 20px;
 }
-
+ 
 .card-title {
   font-weight: bold;
 }
-
+ 
 .card-title a {
   text-decoration: none;
   color: #0d6efd;
 }
-
+ 
 .card-title a:hover {
   text-decoration: underline;
 }
-
+ 
 .card-text {
   margin-bottom: 0.5rem;
 }
+ 
 
-/* Form Styles */
 .form-label {
   font-weight: bold;
 }
+ 
 
-/* Primary Button Styles */
 .btn-primary {
   background-color: #0d6efd;
   border-color: #0d6efd;
 }
-
+ 
 .btn-primary:hover {
   background-color: #0b5ed7;
   border-color: #0b5ed7;
 }
+ 
 
-/* Input Group Text Styles */
 .input-group-text {
   background-color: #0d6efd;
   border-color: #0d6efd;
   color: #fff;
 }
-
+ 
 .input-group-text:hover {
   background-color: #0b5ed7;
   border-color: #0b5ed7;
 }
-
+ 
 .container {
   margin-top: 20px;
   align-items: center;
 }
-
-/* Optional: Add more custom styles as needed */
+ 
